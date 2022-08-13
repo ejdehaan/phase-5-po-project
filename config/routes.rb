@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  get "/hi", to: "hello#hi"
   
 
   get '*path',
