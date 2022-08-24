@@ -34,7 +34,7 @@ function SignUp({ setUser }) {
     history.push("/")
   }
   
-
+  //add a return to login link
   
   return (
     <div>

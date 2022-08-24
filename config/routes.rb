@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :suppliers
-  resources :users, only: [:index]
+  resources :users
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
