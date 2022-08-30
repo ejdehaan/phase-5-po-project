@@ -9,24 +9,27 @@ function Header({ user, onLogout }) {
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
-    }).then(() => onLogout());
+    }).then(() => onLogout(null));
     history.push("/login")
   }
   
   return (
-    <div>Header Component
+    <div>
       <div>
         {user ? (
             <div className="header">
               <h5>Welcome, {user.username}!</h5>
-              <button className="box3" onClick={handleLogout}>Logout</button>
+              <button className='box' onClick={handleLogout}>Logout</button>
             </div>
-          ) : (
+          ) 
+          : (
             <Link to="/login">
-              <button className="box3">Login</button>
+              <button className='box'>Login</button>
             </Link>
-          )}
+          )
+          }
       </div>
+      <br></br>
     </div>
   )
 }

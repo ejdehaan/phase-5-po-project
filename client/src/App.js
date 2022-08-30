@@ -1,57 +1,89 @@
-import { useState } from "react";
-import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { useState, useEffect } from "react";
+import { Switch, Route } from 'react-router-dom'
 
-import Home from "./components/Home";
+import OpenOrders from "./components/OpenOrders";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Header from "./components/Header";
+import Profile from "./components/Profile";
+import CompletedOrders from "./components/CompletedOrders";
+import Help from "./components/Help";
+import NavBar from "./components/NavBar";
+import EditOrder from "./components/EditOrder"
 
 
 function App() {
 
   const [user, setUser] = useState(null);
+  const [orders, setOrders] = useState([])
 
-  function handleLogin(user) {
-    setUser(user);
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+
+  function fetchOrders() {
+    fetch("/orders")
+    .then(resp => resp.json())
+    .then(data => setOrders(data))
   }
+  
 
-  function handleLogout() {
-    setUser(null);
+  function handleUpdateUser(user) {
+    setUser(user);
   }
 
 
   if (!user) return (
-    <div className='no-user'>
-      <BrowserRouter>
+    <div className="no-user">
         <Route path="/login">
-          <Login onLogin={handleLogin} />
+          <Login onLogin={handleUpdateUser} />
         </Route>
         <Route path="/signup">
           <SignUp setUser={setUser} />
         </Route>
-      </BrowserRouter>
     </div>
   )
 
 
   return (
     <div>
-      <Header user={user} onLogout={handleLogout}/>
-      <BrowserRouter>
+      <Header user={user} onLogout={handleUpdateUser}/>
+      <NavBar user={user} />
+
         <Switch>
-          {/* <Route path="/signup">
-            <SignUp />
+          <Route path="/help"> 
+            <Help />
           </Route>
 
-          <Route path="/login">
-            <Login onLogin={handleLogin} />
-          </Route> */}
-
-          <Route path="/"> 
-            <Home />
+          <Route path="/users/:id/edit"> 
+            <Profile user={user}/>
           </Route>
+
+          <Route path="/completed-orders"> 
+            <CompletedOrders user={user}/>
+          </Route>
+
+          <Route path="/open-orders/:id/edit">
+            <EditOrder orders={orders} user={user} handleUpdateUser={handleUpdateUser}/>
+          </Route>
+
+          <Route exact path="/open-orders"> 
+            <OpenOrders user={user} />
+          </Route>
+
         </Switch> 
-      </BrowserRouter>
+
     </div>
   );
 }

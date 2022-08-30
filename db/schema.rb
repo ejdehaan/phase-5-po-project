@@ -10,9 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_22_225631) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_28_222946) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "po_num"
+    t.string "supplier_id"
+    t.string "supplier_name"
+    t.string "pickup_date"
+    t.string "pickup_name"
+    t.string "pickup_address"
+    t.string "pickup_city"
+    t.string "pickup_state"
+    t.string "pickup_zip"
+    t.string "pickup_country"
+    t.string "pickup_contact"
+    t.string "pickup_phone"
+    t.integer "cartons"
+    t.integer "weight"
+    t.integer "volume"
+    t.integer "pallets"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "completed", default: false
+  end
 
   create_table "suppliers", force: :cascade do |t|
     t.string "name"
@@ -35,6 +57,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_225631) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "supplier_id"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "country"
+    t.string "phone"
   end
 
 end

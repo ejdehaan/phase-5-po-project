@@ -1,5 +1,5 @@
 import {React, useState} from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 function SignUp({ setUser }) {
   
@@ -10,7 +10,14 @@ function SignUp({ setUser }) {
     first_name: "",
     last_name: "",
     email_address: "",
-    password: ""
+    password: "",
+    supplier_id: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    country: "",
+    phone:""
   })
 
   function handleChange(e) {
@@ -38,11 +45,15 @@ function SignUp({ setUser }) {
   
   return (
     <div>
-      <h1>SignUp Component</h1>
-
-      <form onSubmit={handleSubmit}>
-        <h3>Sign Up</h3>     
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <h2 className='login_signup_hdr_ftr'>Sign Up</h2>     
+      <form className='user_acct_form' onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
+        <br/>
         <input
           type="text"
           id="username"
@@ -50,9 +61,11 @@ function SignUp({ setUser }) {
           value={userformData.username}
           onChange={handleChange}
         />
-        <br></br>
+        <br/>
+        <br/>
 
         <label htmlFor="first_name">First Name</label>
+        <br/>
         <input
           type="text"
           id="first_name"
@@ -60,9 +73,11 @@ function SignUp({ setUser }) {
           value={userformData.first_name}
           onChange={handleChange}
         />
-        <br></br>
+        <br/>
+        <br/>
 
-        <label htmlFor="last_name">Last Name</label> 
+        <label htmlFor="last_name">Last Name</label>
+        <br/> 
         <input
           type="text"
           id="last_name"
@@ -70,9 +85,11 @@ function SignUp({ setUser }) {
           value={userformData.last_name}
           onChange={handleChange}
         />
-        <br></br>
+        <br/>
+        <br/>
 
         <label htmlFor="email_address">Email</label>  
+        <br/>
         <input
           type="text"
           id="email_address"
@@ -80,9 +97,11 @@ function SignUp({ setUser }) {
           value={userformData.email_address}
           onChange={handleChange}
         />
-        <br></br>
+        <br/>
+        <br/>
 
         <label htmlFor="password">Password</label>
+        <br/>
         <input
           type="password"
           id="password"
@@ -90,9 +109,92 @@ function SignUp({ setUser }) {
           onChange={handleChange}
           autoComplete="current-password"
         />
-        <br></br>
-        <button type="submit">Sign Up</button>
+        <br/>
+        <br/>
+
+        <label htmlFor="supplier_id">Supplier ID</label>  
+        <br/>
+        <input
+          type="text"
+          id="supplier_id"
+          autoComplete="off"
+          value={userformData.supplier_id}
+          onChange={handleChange}
+        />
+        <br/>
+
+        {/* <label htmlFor="address">Address </label>  
+        <br/>
+        <input
+          type="text"
+          id="address"
+          autoComplete="off"
+          value={userformData.address}
+          onChange={handleChange}
+        />
+        <br/>
+
+        <label htmlFor="city">City </label>  
+        <br/>
+        <input
+          type="text"
+          id="city"
+          autoComplete="off"
+          value={userformData.city}
+          onChange={handleChange}
+        />
+        <br/>
+
+        <label htmlFor="state">State </label>  
+        <br/>
+        <input
+          type="text"
+          id="state"
+          autoComplete="off"
+          value={userformData.state}
+          onChange={handleChange}
+        />
+        <br/>
+
+        <label htmlFor="zip">Zip </label>  
+        <br/>
+        <input
+          type="text"
+          id="zip"
+          autoComplete="off"
+          value={userformData.zip}
+          onChange={handleChange}
+        />
+        <br/>
+
+        <label htmlFor="country">Country </label>  
+        <br/>
+        <input
+          type="text"
+          id="country"
+          autoComplete="off"
+          value={userformData.country}
+          onChange={handleChange}
+        />
+        <br/>
+
+        <label htmlFor="phone">Phone </label>  
+        <br/>
+        <input
+          type="text"
+          id="phone"
+          autoComplete="off"
+          value={userformData.phone}
+          onChange={handleChange}
+        /> */}
+        <br/>
+        <br/>
+        <button className='box' type="submit">Sign Up</button>
       </form>
+
+      <Link to ="/login">
+        <h5 className='hyperlink'>Return to Login</h5>
+      </Link>
 
     </div>
   )

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  resources :orders, only: [:index, :show, :edit, :update]
   resources :suppliers
-  resources :users
+  resources :users, only: [:index, :show, :edit, :update]
+
+
+  get "/me", to: "users#show"
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

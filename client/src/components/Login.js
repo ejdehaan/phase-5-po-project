@@ -21,40 +21,49 @@ function Login({ onLogin }) {
             if (r.ok) {
                 r.json().then((user) => onLogin(user));
             }
-            history.push("/")
+            history.push("/open-orders")
         });
     }
 
 
   return (
     <>
-        <div>Login Component</div>
-        <form onSubmit={handleSubmit}>
-            <h3>Login</h3>
-            <label htmlFor="username">Username: </label>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h2 className='app_name'>Shipment Solutions</h2>
+        <br/>
+        <br/>
+        <form className='user_acct_form' onSubmit={handleSubmit}>
+            <label htmlFor="username">Username</label>
+            <br/>
             <input
             type="text"
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             />
-            <br></br>
+            <br/>
+            <br/>
 
-            <h3>Password</h3>
-            <label htmlFor="password">Password:  </label>
+            <label htmlFor="password">Password</label>
+            <br/>
             <input 
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             />
-            <br></br>
-            <button>Login</button>
+            <br/>
+            <br/>
+            <button className='box'>Login</button>
         </form>
-        <br></br>
         <Link to ="/signup">
-            Sign Up Here!
+            <h5 className='hyperlink'>Sign Up Here!</h5>
         </Link>
+        <br></br>
     </>
   )
 }

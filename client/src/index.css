@@ -1,13 +1,122 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 10;
+  padding: 10;
+  font-family: 'Josefin Sans', sans-serif;
+  } 
+
+
+.no-user {
+  background-image: url("https://talkbusiness.net/wp-content/uploads/2020/05/Trucking-I.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.hyperlink {
+  color: bisque;
+  padding: 10px;
+  width: 100vw;
+  margin: auto;
+  text-align: center;
+  display: block;
+  flex-direction: column;
+  border-radius: 4px;
 }
+
+
+.login_signup_hdr_ftr{
+  padding: 10px;
+  width: 100vw;
+  margin: auto;
+  text-align: center;
+  display: block;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+.app_name{
+  color: rgb(67, 14, 119);
+  padding: 10px;
+  width: 100vw;
+  margin: auto;
+  text-align: center;
+  display: block;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+.user_acct_form {
+  padding: 20px;
+  width: 100vw;
+  margin: auto;
+  text-align: center;
+  display: block;
+  flex-direction: column;
+  background-color: rgba(121, 199, 231, 0.4);
+  border-radius: 4px;
+}
+
+.profile_form {
+  padding: 5px;
+  width: 30%;
+  margin: auto;
+  text-align: center;
+  display: block;
+  flex-direction: column;
+  /* background-color: rgba(216, 112, 147, 0.4); */
+  border-radius: 4px;
+}
+
+
+.center_align {
+  text-align: center;
+}
+
+
+.left_align {
+  text-align: left;
+}
+
+
+.old_navbar {
+  padding: 5px;
+  width: 400px;
+  margin:auto;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: stretch;
+  border-radius: 100px;
+}
+
+
+
+
+.box {
+  border: 3px solid rgba(0,0,0,.2);
+}
+
+.open_orders {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.edit_order {
+  padding: 20px;
+  width: 100vw;
+  margin: auto;
+  text-align: center;
+  display: block;
+  flex-direction: column;
+  /* background-color: rgba(121, 199, 231, 0.4); */
+  border-radius: 4px;
+}
+
